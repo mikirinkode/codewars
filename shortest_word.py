@@ -48,7 +48,7 @@ def find_short(s):
     
     
 
-from utils.test import assert_equals
+from testing.test import assert_equals
 assert_equals(find_short("bitcoin take over the world maybe who knows perhaps"), 3)
 assert_equals(find_short("turns out random test cases are easier than writing out basic ones"), 3)
 assert_equals(find_short("lets talk about javascript the best language"), 3)

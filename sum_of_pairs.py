@@ -57,7 +57,7 @@ l9[len(l9) - 1] = -3
 l9[0] = 13
 l9[1] = 3
 
-from utils.test import assert_equals
+from testing.test import assert_equals
 assert_equals(sum_pairs(l1, 8), [1, 7], "Basic: %s should return [1, 7] for sum = 8" % l1)
 assert_equals(sum_pairs(l2, -6), [0, -6], "Negatives: %s should return [0, -6] for sum = -6" % l2)
 assert_equals(sum_pairs(l3, -7), None, "No Match: %s should return None for sum = -7" % l3)
