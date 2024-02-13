@@ -1,0 +1,43 @@
+# Sort The Odd
+# 6 kyu
+# https://www.codewars.com/kata/578aa45ee9fd15ff4600090d/
+
+def sort_array(source_array):
+    temp = None
+    tempIndex = None
+    for i in range(0, len(source_array)):
+        print(f"index: {i}, value: {source_array}")
+        if source_array[i] %2 != 0:
+            temp = source_array[i]
+            tempIndex = i
+            for j in range(0, i):
+                if j != tempIndex and source_array[j] %2 != 0:
+                    if source_array[j] > temp:
+                        print(f"swapped between {source_array[j]} and {temp}")
+                        source_array[tempIndex] = source_array[j]
+                        source_array[j] = temp
+                        tempIndex = j
+                        print(f"swapped result {source_array}")
+                
+    return source_array
+      
+
+from testing.test import assert_equals                
+assert_equals(sort_array([5, 3, 2, 8, 1, 4]), [1, 3, 2, 8, 5, 4])
+# assert_equals(sort_array([5, 3, 1, 8, 0]), [1, 3, 5, 8, 0])
+# assert_equals(sort_array([]),[])
+# assert_equals(sort_array([5, 3, 2, 8, 1, 4, 11]), [1, 3, 2, 8, 5, 4, 11])
+# assert_equals(sort_array([2, 22, 37, 11, 4, 1, 5, 0]), [2, 22, 1, 5, 4, 11, 37, 0])
+# assert_equals(sort_array([1, 111, 11, 11, 2, 1, 5, 0]),[1, 1, 5, 11, 2, 11, 111, 0])
+# assert_equals(sort_array([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]),[1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
+# assert_equals(sort_array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]),[0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+# assert_equals(sort_array([0, 1, 2, 3, 4, 9, 8, 7, 6, 5]),[0, 1, 2, 3, 4, 5, 8, 7, 6, 9])
+
+# insersion sort 
+def insertion_sort(list):
+    for i in range(1, len(list)):
+        j = i
+        while j > 0 and list[j] < list[j - 1]:
+            list[j], list[j - 1] = list[j - 1], list[j]
+            j -= 1
+    return list
